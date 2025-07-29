@@ -8,6 +8,11 @@ router.get('/', (req, res) => {
 });
 
 
+router.get('/new', async (req, res) => {
+  res.render('games/new.ejs');
+});
+
+
 
 
 module.exports = router;
