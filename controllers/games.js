@@ -44,6 +44,32 @@ router.get('/:gameId', async (req, res) => {
   }
 });
 
+router.delete('/:gameId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    currentUser.games.id(req.params.gameId).deleteOne();
+    await currentUser.save();
+    res.redirect(`/users/${currentUser._id}/games`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+router.get('/:gameId/edit', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const game = currentUser.games.id(req.params.gameId);
+    res.render('games/edit.ejs', {
+      game: game,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+
 
 
 
