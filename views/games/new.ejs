@@ -8,9 +8,9 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add New Game</h1>
-    <form action="/users/<%= user._id %>/foods" method="POST">
-        <label for="name">Game Title:</label>
-        <input type="text" name="name" id="name" />
+    <form action="/users/<%= user._id %>/games" method="POST">
+        <label for="title">Game Title:</label>
+        <input type="text" name="title" id="title" />
 
         <label for="category">Game Category:</label>
         <select name="category" id="category" >
@@ -26,18 +26,19 @@
         <input type="number" name="hoursPlayed" id="hoursPlayed" min="0" />
 
         <label for="levelReached">Level Reached</label>
-        <select name="levelReached" id="levelReached" />
+        <select name="levelReached" id="levelReached" >
             <option value=" ">Select Level</option>
             <option value="Noob">Noob</option>
             <option value="Casual">Casual</option>
             <option value="Experienced">Experienced</option>
             <option value="Advanced">Advanced</option>
             <option value="Sweat">Sweat</option>
+        </select>
 
         <label for="notes">Notes:</label>
         <textarea name="notes" id="notes" maxLength="100"></textarea>
 
-          <button type="submit">Add New Game</button>
+        <button type="submit">Add New Game</button>
     </form>
   </body>
 </html>
