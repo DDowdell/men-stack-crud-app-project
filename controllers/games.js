@@ -31,6 +31,20 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:gameId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const game = currentUser.games.id(req.params.gameId);
+    res.render('games/show.ejs', {
+      game: game,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+
 
 
 
