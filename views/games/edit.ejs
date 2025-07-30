@@ -8,7 +8,7 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit <%= game.title %></h1>
-    <form action='/users/<%= user._id %>/games/<%= game._id %>'?_method='PUT' method="POST">
+    <form action='/users/<%= user._id %>/games/<%= game._id %>?_method=PUT' method='POST'>
         <label for='title'>Game Title:</label>
         <input type='text' name='title' id='title' value='<%= game.title %>'/>
 
@@ -48,7 +48,7 @@
         <label for='notes'>Notes:</label>
         <textarea name='notes' id='notes' maxLength='100'><%= game.notes %></textarea>
 
-        <button type='submit'>Add New Game</button>
+        <button type='submit'>Edit Game</button>
     </form>
   </body>
 </html>
