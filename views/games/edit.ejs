@@ -1,44 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Editing <%= game.title %></title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit <%= game.title %></h1>
-    <form action="/users/<%= user._id %>/games" method="POST">
-        <label for="title">Game Title:</label>
-        <input type="text" name="title" id="title" />
+    <form action='/users/<%= user._id %>/games/<%= game._id %>'?_method='PUT' method="POST">
+        <label for='title'>Game Title:</label>
+        <input type='text' name='title' id='title' value='<%= game.title %>'/>
 
-        <label for="category">Game Category:</label>
-        <select name="category" id="category" >
-            <option value=" ">Select Category</option>
-            <option value="Action-Adventure">Action-Adventure</option>
-            <option value="First-Person Shooter">First-Person Shooter</option>
-            <option value="Battle-Royale">Battle-Royale</option>
-            <option value="Sports">Sports</option>
-            <option value="Role-Playing">Role-Playing</option>
+        <label for='category'>Game Category:</label>
+        <select name='category' id='category' >
+            <option value=' '>Select Category</option>
+            <option value='Action-Adventure' <%= game.category === 'Action-Adventure' ? 'selected' : '' %>
+            >Action-Adventure</option>
+            <option value='First-Person Shooter' <%= game.category === 'First-Person Shooter' ? 'selected' : '' %>
+            >First-Person Shooter</option>
+            <option value='Battle-Royale' <%= game.category === 'Battle-Royale' ? 'selected' : '' %>
+            >Battle-Royale</option>
+            <option value='Sports' <%= game.category === 'Sports' ? 'selected' : '' %>
+            >Sports</option>
+            <option value='Role-Playing' <%= game.category === 'Role-Playing' ? 'selected' : '' %>
+            >Role-Playing</option>
         </select>
 
-        <label for="hoursPlayed">How Many Hours Played:</label>
-        <input type="number" name="hoursPlayed" id="hoursPlayed" min="0" />
+        <label for='hoursPlayed'>How Many Hours Played:</label>
+        <input type='number' name='hoursPlayed' id='hoursPlayed' min='0' value='<%= game.hoursPlayed %>'/>
 
-        <label for="levelReached">Level Reached</label>
-        <select name="levelReached" id="levelReached" >
-            <option value=" ">Select Level</option>
-            <option value="Noob">Noob</option>
-            <option value="Casual">Casual</option>
-            <option value="Experienced">Experienced</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Sweat">Sweat</option>
+        <label for='levelReached'>Level Reached</label>
+        <select name='levelReached' id='levelReached' >
+            <option value=' '>Select Level</option>
+            <option value='Noob' <%= game.levelReached === 'Noob' ? 'selected' : '' %>
+            >Noob</option>
+            <option value='Casual' <%= game.levelReached === 'Casual' ? 'selected' : '' %>
+            >Casual</option>
+            <option value='Experienced' <%= game.levelReached === 'Experienced' ? 'selected' : '' %>
+            >Experienced</option>
+            <option value='Advanced' <%= game.levelReached === 'Advanced' ? 'selected' : '' %>
+            >Advanced</option>
+            <option value='Sweat' <%= game.levelReached === 'Sweat' ? 'selected' : '' %>
+            >Sweat</option>
         </select>
 
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes" maxLength="100"></textarea>
+        <label for='notes'>Notes:</label>
+        <textarea name='notes' id='notes' maxLength='100'><%= game.notes %></textarea>
 
-        <button type="submit">Add New Game</button>
+        <button type='submit'>Add New Game</button>
     </form>
   </body>
 </html>
