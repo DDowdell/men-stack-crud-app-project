@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +8,53 @@
 
     <title>Add New Game</title>
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add New Game</h1>
-    <form action="/users/<%= user._id %>/games" method="POST">
-        <label for="title">Game Title:</label>
-        <input type="text" name="title" id="title" />
 
-        <label for="category">Game Category:</label>
-        <select name="category" id="category" >
-            <option value=" ">Select Category</option>
-            <option value="Action-Adventure">Action-Adventure</option>
-            <option value="First-Person Shooter">First-Person Shooter</option>
-            <option value="Battle-Royale">Battle-Royale</option>
-            <option value="Sports">Sports</option>
-            <option value="Role-Playing">Role-Playing</option>
-        </select>
+        <div class="content">
+            <h1>Add New Game</h1>
 
-        <label for="hoursPlayed">How Many Hours Played:</label>
-        <input type="number" name="hoursPlayed" id="hoursPlayed" min="0" />
-
-        <label for="levelReached">Level Reached</label>
-        <select name="levelReached" id="levelReached" >
-            <option value=" ">Select Level</option>
-            <option value="Noob">Noob</option>
-            <option value="Casual">Casual</option>
-            <option value="Experienced">Experienced</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Sweat">Sweat</option>
-        </select>
-
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes" maxLength="100"></textarea>
-
-        <button type="submit">Add New Game</button>
-    </form>
-  </body>
-</html>
+            <form action="/users/<%= user._id %>/games" method="POST">
+                
+                <div class="form-box">
+                    <label for="title">Game Title:</label>
+                    <input type="text" name="title" id="title" />
+                </div>
+                <div class="form-box">
+                    <label for="category">Game Category:</label>
+                    <select name="category" id="category">
+                        <option value=" ">Select Category</option>
+                        <option value="Action-Adventure">Action-Adventure</option>
+                        <option value="First-Person Shooter">First-Person Shooter</option>
+                        <option value="Battle-Royale">Battle-Royale</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Role-Playing">Role-Playing</option>
+                    </select>
+                </div>
+                <div class="form-box">
+                    <label for="hoursPlayed">How Many Hours Played:</label>
+                    <input type="number" name="hoursPlayed" id="hoursPlayed" min="0" />
+                </div>
+                <div class="form-box">
+                    <label for="levelReached">Level Reached</label>
+                    <select name="levelReached" id="levelReached">
+                        <option value=" ">Select Level</option>
+                        <option value="Noob">Noob</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Experienced">Experienced</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Sweat">Sweat</option>
+                    </select>
+                </div>
+                <div class="form-box">
+                    <label for="notes">Notes:</label>
+                    <textarea name="notes" id="notes" maxLength="100"></textarea>
+                </div>
+                <div class="button">
+                <button type="submit">Add New Game</button>
+                </div>
+            </form>
+        </div>
+</body>
 </html>

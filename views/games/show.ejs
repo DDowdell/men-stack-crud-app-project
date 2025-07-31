@@ -18,17 +18,17 @@
     <% } %> 
     
       <% if (user._id.toString() === currentUser._id.toString()) { %>
-    <a href="/users/<%= user._id %>/games/<%= game._id %>/edit">
-      Edit Game Details
-    </a>
+    <a href="/users/<%= user._id %>/games/<%= game._id %>/edit">Edit Game Details</a>
+
     
     <form
-      action="/users/<%= user._id %>/games/<%= game._id %>?_method=DELETE"
-      method="POST"
+    action="/users/<%= user._id %>/games/<%= game._id %>?_method=DELETE"
+    method="POST"
     >
-      <button type="submit">Delete Game</button>
-    </form>
-    <% } %>
+    <button type="submit">Delete Game</button>
+  </form>
+  <% } %>
+
     
 </body>
 </html>

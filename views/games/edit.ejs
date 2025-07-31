@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -7,51 +8,68 @@
 
     <title>Editing <%= game.title %></title>
 </head>
+
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Edit <%= game.title %></h1>
-    <form action='/users/<%= user._id %>/games/<%= game._id %>?_method=PUT' method='POST'>
-        <label for='title'>Game Title:</label>
-        <input type='text' name='title' id='title' value='<%= game.title %>'/>
 
-        <label for='category'>Game Category:</label>
-        <select name='category' id='category' >
-            <option value=' '>Select Category</option>
-            <option value='Action-Adventure' <%= game.category === 'Action-Adventure' ? 'selected' : '' %>
-            >Action-Adventure</option>
-            <option value='First-Person Shooter' <%= game.category === 'First-Person Shooter' ? 'selected' : '' %>
-            >First-Person Shooter</option>
-            <option value='Battle-Royale' <%= game.category === 'Battle-Royale' ? 'selected' : '' %>
-            >Battle-Royale</option>
-            <option value='Sports' <%= game.category === 'Sports' ? 'selected' : '' %>
-            >Sports</option>
-            <option value='Role-Playing' <%= game.category === 'Role-Playing' ? 'selected' : '' %>
-            >Role-Playing</option>
-        </select>
+        <div class="content">
+            <h1>Edit <%= game.title %></h1>
 
-        <label for='hoursPlayed'>How Many Hours Played:</label>
-        <input type='number' name='hoursPlayed' id='hoursPlayed' min='0' value='<%= game.hoursPlayed %>'/>
+            <form action='/users/<%= user._id %>/games/<%= game._id %>?_method=PUT' method='POST'>
+                
+                <div class="form-box">
+                    <label for='title'>Game Title:</label>
+                    <input type='text' name='title' id='title' value='<%= game.title %>' />
+                </div>
 
-        <label for='levelReached'>Level Reached</label>
-        <select name='levelReached' id='levelReached' >
-            <option value=' '>Select Level</option>
-            <option value='Noob' <%= game.levelReached === 'Noob' ? 'selected' : '' %>
-            >Noob</option>
-            <option value='Casual' <%= game.levelReached === 'Casual' ? 'selected' : '' %>
-            >Casual</option>
-            <option value='Experienced' <%= game.levelReached === 'Experienced' ? 'selected' : '' %>
-            >Experienced</option>
-            <option value='Advanced' <%= game.levelReached === 'Advanced' ? 'selected' : '' %>
-            >Advanced</option>
-            <option value='Sweat' <%= game.levelReached === 'Sweat' ? 'selected' : '' %>
-            >Sweat</option>
-        </select>
+                <div class="form-box">
+                    <label for='category'>Game Category:</label>
+                    <select name='category' id='category'>
+                        <option value=' '>Select Category</option>
+                        <option value='Action-Adventure' <%=game.category==='Action-Adventure' ? 'selected' : '' %>
+                            >Action-Adventure</option>
+                        <option value='First-Person Shooter' <%=game.category==='First-Person Shooter' ? 'selected' : ''
+                            %>
+                            >First-Person Shooter</option>
+                        <option value='Battle-Royale' <%=game.category==='Battle-Royale' ? 'selected' : '' %>
+                            >Battle-Royale</option>
+                        <option value='Sports' <%=game.category==='Sports' ? 'selected' : '' %>
+                            >Sports</option>
+                        <option value='Role-Playing' <%=game.category==='Role-Playing' ? 'selected' : '' %>
+                            >Role-Playing</option>
+                    </select>
+                </div>
 
-        <label for='notes'>Notes:</label>
-        <textarea name='notes' id='notes' maxLength='100'><%= game.notes %></textarea>
+                <div class="form-box">
+                    <label for='hoursPlayed'>How Many Hours Played:</label>
+                    <input type='number' name='hoursPlayed' id='hoursPlayed' min='0' value='<%= game.hoursPlayed %>' />
+                </div>
 
-        <button type='submit'>Edit Game</button>
-    </form>
-  </body>
-</html>
+                <div class="form-box">
+                    <label for='levelReached'>Level Reached</label>
+                    <select name='levelReached' id='levelReached'>
+                        <option value=' '>Select Level</option>
+                        <option value='Noob' <%=game.levelReached==='Noob' ? 'selected' : '' %>
+                            >Noob</option>
+                        <option value='Casual' <%=game.levelReached==='Casual' ? 'selected' : '' %>
+                            >Casual</option>
+                        <option value='Experienced' <%=game.levelReached==='Experienced' ? 'selected' : '' %>
+                            >Experienced</option>
+                        <option value='Advanced' <%=game.levelReached==='Advanced' ? 'selected' : '' %>
+                            >Advanced</option>
+                        <option value='Sweat' <%=game.levelReached==='Sweat' ? 'selected' : '' %>
+                            >Sweat</option>
+                    </select>
+                </div>
+
+                <div class="form-box">
+                    <label for='notes'>Notes:</label>
+                    <textarea name='notes' id='notes' maxLength='100'><%= game.notes %></textarea>
+                </div>
+
+                <button type='submit'>Edit Game</button>
+            </form>
+        </div>
+</body>
+
 </html>
