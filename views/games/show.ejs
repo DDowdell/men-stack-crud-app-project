@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title><%= game.title %></title>
 </head>
 <body>
@@ -14,19 +16,19 @@
     <% if (game.notes) { %>
     <p>Notes: <%= game.notes %></p>
     <% } %> 
-
+    
+      <% if (user._id.toString() === currentUser._id.toString()) { %>
     <a href="/users/<%= user._id %>/games/<%= game._id %>/edit">
       Edit Game Details
     </a>
-
-
+    
     <form
       action="/users/<%= user._id %>/games/<%= game._id %>?_method=DELETE"
       method="POST"
     >
       <button type="submit">Delete Game</button>
     </form>
-
+    <% } %>
     
 </body>
 </html>

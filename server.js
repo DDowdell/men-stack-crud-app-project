@@ -10,6 +10,7 @@ const session = require('express-session');
 
 const authController = require('./controllers/auth.js');
 const gamesController = require('./controllers/games.js');
+const communityController = require('./controllers/community.js');
 
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
@@ -17,8 +18,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : '3000';
 
-
-
+const path = require('path');
 
 //Connections==================================================================
 mongoose.connect(process.env.MONGODB_URI);
@@ -33,6 +33,9 @@ app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -43,6 +46,7 @@ app.use(
 
 app.use(passUserToView);
 app.use('/auth', authController);
+app.use('/community', communityController);
 // app.use(isSignedIn);
 
 app.use('/users/:userId/games', isSignedIn, gamesController);
@@ -56,6 +60,8 @@ app.get('/', (req, res) => {
     user: req.session.user,
   });
 });
+
+
 
 
 

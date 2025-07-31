@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
 
-// routes==================================
 router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -25,19 +24,6 @@ router.post('/', async (req, res) => {
     currentUser.games.push(req.body);
     await currentUser.save();
     res.redirect(`/users/${currentUser._id}/games`);
-  } catch (error) {
-    console.log(error);
-    res.redirect('/');
-  }
-});
-
-router.get('/:gameId', async (req, res) => {
-  try {
-    const currentUser = await User.findById(req.session.user._id);
-    const game = currentUser.games.id(req.params.gameId);
-    res.render('games/show.ejs', {
-      game: game,
-    });
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -84,9 +70,19 @@ router.put('/:gameId', async (req, res) => {
   }
 });
 
-
-
-
+router.get('/:gameId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const game = currentUser.games.id(req.params.gameId);
+    res.render('games/show.ejs', {
+      game: game,
+      currentUser: currentUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
 
 
 module.exports = router;

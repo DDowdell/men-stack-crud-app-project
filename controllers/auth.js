@@ -3,8 +3,6 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const User = require('../models/user.js');
 
-
-//Routes====================================
 router.get('/sign-up', (req, res) => {
     res.render('auth/sign-up.ejs');
 });
@@ -50,6 +48,4 @@ router.get("/sign-out", (req, res) => {
   res.redirect("/");
 });
 
-
-// ==========================================
 module.exports = router;
