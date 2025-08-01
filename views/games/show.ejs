@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/html-head') %>
+<%- include('../partials/_navbar.ejs') %>
 
     <title><%= game.title %></title>
 </head>
 <body>
-    <%- include('../partials/_navbar.ejs') %>
     <h1><%= game.title %></h1>
     <p>Category: <%= game.category %></p>
     <p>Hours Played: <%= game.hoursPlayed %></p>
@@ -29,6 +24,6 @@
   </form>
   <% } %>
 
-    
+
 </body>
 </html>

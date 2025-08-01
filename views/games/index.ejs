@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/html-head') %>
+<%- include('../partials/_navbar.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-
-    <title>My Games</title>
+<title>My Games</title>
 </head>
 
 <body>
-    <%- include('../partials/_navbar.ejs') %>
         <h1>Here are your Games</h1>
         <ul>
             <% games.forEach((game) => { %>
