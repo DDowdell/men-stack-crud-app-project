@@ -19,7 +19,7 @@ router.post('/sign-up', async (req, res) => {
     req.body.password = hashedPassword;
 
     const user = await User.create(req.body);
-    res.redirect("/auth/sing-in");
+    res.redirect('/auth/sign-in.ejs');
 });
 
 router.get('/sign-in', (req, res) => {

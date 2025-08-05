@@ -120,3 +120,16 @@ button:hover {
     color: #ffffff;
     cursor: pointer;
 }
+
+.logo-container {
+  height: 500px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
