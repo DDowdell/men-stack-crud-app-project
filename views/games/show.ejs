@@ -13,7 +13,7 @@
     <% } %> 
     
       <% if (user._id.toString() === currentUser._id.toString()) { %>
-    <a href="/users/<%= user._id %>/games/<%= game._id %>/edit">Edit Game Details</a>
+    <div class="link"><a href="/users/<%= user._id %>/games/<%= game._id %>/edit">Edit Game Details</a></div>
 
     
     <form
