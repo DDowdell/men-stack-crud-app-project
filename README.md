@@ -1,5 +1,9 @@
 # Welcome to the PlayBox App!
 
+![PlayBox Logo](public/images/PlayBoxLogo.jpeg)
+
+Enter Here: [PlayBoxTM](https://playbox-game-library-378a79b56acc.herokuapp.com/)
+
 ### Your own personal library for your games and their details.
 
 Here you can create an account. When logged in you will be able to view your games, add new games, edit and delet whichever game you choose. As for the details of the games you can keep track of the game's category, the level you have reached so far along with how many hours you have played in order to reach said level.
@@ -23,4 +27,4 @@ We also have a gamer community where you can view other user's games and details
 ***Future Plans for the App:***
 * Space for game covers/images
 * Page to find new friends by console ID sharing
-* Integrate created logo
+* Animate created logo 
